@@ -1,1 +1,1 @@
-你关这他妈叫博客？
+[这他妈叫博客？](linfeitang.github.io)

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>一直搞不懂git用户名、邮箱和github用户名、邮箱有什么关系，所有的教程中都使两者一模一样。</p>
+
+<p>然而实际上两者是没有什么太大关系的。</p>
+
+<h1>git用户名、邮箱</h1>
+
+<p>初次配置git时需要通过这样的命令来设置用户名和邮箱：</p>
+
+<p><code>git config user.name &quot;username&quot;</code></p>
+
+<p><code>git config user.email &quot;user@email.com&quot;</code></p>
+
+<p>这是在告诉Git这个软件，是谁在使用它。不设置是没法完成<code>git commit</code>提交操作的。</p>
+
+<p>并且当其他人查看历史提交的时候可以看到每个提交的作者以及他的邮箱，方便与之交流。</p>
+
+<p>而且邮箱不一定非得是邮箱，可以是任意的字符串，比如：</p>
+
+<p><code>git config user.email &quot;zhe gen ben bu shi youxiang&quot;</code></p>
+
+<p>这样设置后照样可以提交、推送等等。</p>
+
+<p>之所以设置成邮箱是为了方便别人可以联系到自己。</p>
+
+<h1>github用户名、邮箱</h1>
+
+<p>github简单理解就是一个专门用来存放git仓库的服务器。</p>
+
+<p>要使用这个服务器就要注册一个账号。就像要使用QQ就要注册一个QQ账号一样。</p>
+
+<p>所以这个账号是你在github上与其他人交流用的。</p>
+
+<h1>ssh访问github</h1>
+
+<p>当面我们想要推送本地仓库的更改到github上时，如果没有添加密钥到github，</p>
+
+<p>那么每次都需要登录github账号。这显然相当麻烦且不可行。</p>
+
+<p>（<em>并且克隆的话好像也只能通过https的方式而没法使用ssh协议</em>）</p>
+
+<p>所以我们需要通过<code>ssh-keygen -t rsa -C &quot;user@email.com&quot;</code>这样的命令来生成ssh密钥。</p>
+
+<p><strong>实际上此处的邮箱跟git以及github都没有任何关系，甚至根本可以不用是邮箱。</strong></p>
+
+<p>因为本质上<code>ssh-keygen</code>这个命令的选项<code>-C</code>是为了给这个密钥添加注释用的。</p>
+
+<p>完全是为了方便我们知道并记住此时生成的这个密钥是用来干嘛、用在什么地方的。</p>
+
+<hr/>
+
+<p><strong>tips</strong>：关于<code>ssh-keygen</code>命令的选项：</p>
+
+<blockquote><p>-t：指定要创建的密钥类型。</p><p>-C：添加注释；</p><p>-f：指定用来保存密钥的文件名；</p><p>-b：指定密钥长度；</p><p>-e：读取openssh的私钥或者公钥文件；</p><p>-i：读取未加密的ssh-v2兼容的私钥/公钥文件，然后在标准输出设备上显示openssh兼容的私钥/公钥；</p><p>-l：显示公钥文件的指纹数据；</p><p>-N：提供一个新密语；</p><p>-P：提供（旧）密语；</p><p>-q：静默模式；</p></blockquote>
+
+</body>
+</html>
